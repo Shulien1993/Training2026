@@ -180,40 +180,39 @@ const workoutTemplates = {
             setTarget: "1 - 4",
             sets: [
                 { set: 1, weight: 10, reps: 20 },
-                { set: 2, weight: 10, reps: 19 },
-                { set: 3, weight: 10, reps: 17 },
-                { set: 4, weight: 10, reps: 16 }
+                { set: 2, weight: 10, reps: 20 },
+                { set: 3, weight: 10, reps: 20 },
+                { set: 4, weight: 10, reps: 17 }
             ]
         },
 
-        "Reverse Flyes ( Black Rope )": {
+        "Reverse Flyes": {
             repTarget: "15 - 25",
-            setTarget: "1 - 4",
+            setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: "Black Rope", reps: 17 },
-                { set: 2, weight: "Black Rope", reps: 17 },
-                { set: 3, weight: "Black Rope", reps: 16 },
-                { set: 4, weight: "Black Rope", reps: 15 }
+                { set: 1, weight: 5, reps: 16 },
+                { set: 2, weight: 5, reps: 15 },
+                { set: 3, weight: 5, reps: 15 }
             ]
         },
 
-        "Traps ( Barbell )": {
+        "Shrugs ( Barbell )": {
             repTarget: "12 - 20",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 60, reps: 20 },
-                { set: 2, weight: 60, reps: 20 },
-                { set: 3, weight: 60, reps: 19 }
+                { set: 1, weight: 62.5, reps: 14 },
+                { set: 2, weight: 62.5, reps: 12 },
+                { set: 3, weight: 62.5, reps: 12 }
             ]
         },
 
-        "Russian Twist": {
+        "Side Plank": {
             repTarget: "10 - 14",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 20, reps: 14 },
-                { set: 2, weight: 20, reps: 14 },
-                { set: 3, weight: 20, reps: 14 }
+                { set: 1, weight: "BW", reps: "31 sek" },
+                { set: 2, weight: "BW", reps: "30 sek" },
+                { set: 3, weight: "BW", reps: "30 sek" }
             ]
         },
     },
