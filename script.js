@@ -166,13 +166,12 @@ const workoutTemplates = {
     Axlar: {
         "Shoulder Press ( Barbell )": {
             repTarget: "4 - 8",
-            setTarget: "1 - 5",
+            setTarget: "1 - 4",
             sets: [
-                { set: 1, weight: 42.5, reps: 4 },
-                { set: 2, weight: 42.5, reps: 4 },
+                { set: 1, weight: 42.5, reps: 8 },
+                { set: 2, weight: 42.5, reps: 5 },
                 { set: 3, weight: 42.5, reps: 4 },
-                { set: 4, weight: 42.5, reps: 4 },
-                { set: 5, weight: 42.5, reps: 4 }
+                { set: 4, weight: 42.5, reps: 4 }
             ]
         },
 
