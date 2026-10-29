@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workout Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="hero">
+            <p class="eyebrow">Workout Progress</p>
+
+            <h1>Träningslogg</h1>
+
+            <p class="hero-text">
+                Tracka dina pass, övningar, vikter, reps och progression.
+            </p>
+        </header>
+
+        <section class="workout-tabs">
+            <button class="tab-btn active" data-workout="Alla">
+                Alla
+            </button>
+
+            <button class="tab-btn" data-workout="Bröst">
+                Bröst
+            </button>
+
+            <button class="tab-btn" data-workout="Armar">
+                Armar
+            </button>
+
+            <button class="tab-btn" data-workout="Rygg">
+                Rygg
+            </button>
+
+            <button class="tab-btn" data-workout="Axlar">
+                Axlar
+            </button>
+
+            <button class="tab-btn" data-workout="Ben">
+                Ben
+            </button>
+
+            <button class="tab-btn" data-workout="Kondition">
+                Kondition
+            </button>
+
+        </section>
+
+        <section class="stats-grid" id="statsGrid">
+
+            <div class="stat-card" id="primaryStatCard">
+                <strong id="personalBest">0 kg</strong>
+
+                <span id="personalBestLabel">
+                    Löpning - Personbästa
+                </span>
+            </div>
+
+            <div class="stat-card hidden" id="intervalStatCard">
+                <strong id="intervalBest">
+                    Ingen tid
+                </strong>
+
+                <span id="intervalBestLabel">
+                    Intervall · Personbästa
+                </span>
+            </div>
+
+            <div class="stat-card">
+                <strong id="completedWorkouts">
+                    10
+                </strong>
+
+                <span id="completedWorkoutsLabel">
+                    Pass gjorda
+                </span>
+            </div>
+
+            <div class="stat-card">
+                <strong id="currentView">
+                    Alla
+                </strong>
+
+                <span>
+                    Aktivt pass
+                </span>
+            </div>
+
+        </section>
+
+        <section class="panel" id="workoutPanel">
+
+            <div class="section-header">
+                <h2 id="sectionTitle">
+                    Välj pass
+                </h2>
+
+                <button id="backBtn" class="secondary-btn hidden" type="button">
+                    ← Tillbaka
+                </button>
+            </div>
+
+            <div id="contentArea"></div>
+
+        </section>
+
+        <button id="completeWorkoutBtn" class="complete-workout-btn hidden" type="button">
+            Markera pass klart
+        </button>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
