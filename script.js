@@ -44,25 +44,15 @@ const workoutTemplates = {
             repTarget: "4 - 6",
             setTarget: "3 - 4",
             sets: [
-                { set: 1, weight: 102.5, reps: 6 },
-                { set: 2, weight: 102.5, reps: 6 },
-                { set: 3, weight: 102.5, reps: 6 }
+                { set: 1, weight: 105, reps: 6 },
+                { set: 2, weight: 105, reps: 6 },
+                { set: 3, weight: 105, reps: 4 }
             ]
         },
 
-        "Single Arm Row ( Dumbbell )": {
-            repTarget: "8 - 10",
-            setTarget: "3 - 4",
-            sets: [
-                { set: 1, weight: 32.5, reps: 10 },
-                { set: 2, weight: 32.5, reps: 10 },
-                { set: 3, weight: 32.5, reps: 10 }
-            ]
-        },
-
-        "Chin Ups ( Bodyweight )": {
+                "Chin Ups ( Bodyweight )": {
             repTarget: "6 - 10",
-            setTarget: "3 - 4",
+            setTarget: "1 - 4",
             sets: [
                 { set: 1, weight: "BW", reps: 6 },
                 { set: 2, weight: "BW", reps: 6 },
@@ -71,33 +61,33 @@ const workoutTemplates = {
             ]
         },
 
-        "Barbell Bent Over Row": {
+                "Barbell Bent Over Row": {
             repTarget: "6 - 10",
             setTarget: "3 - 4",
             sets: [
-                { set: 1, weight: 60, reps: 10 },
-                { set: 2, weight: 60, reps: 10 },
-                { set: 3, weight: 60, reps: 10 }
+                { set: 1, weight: 42.5, reps: 10 },
+                { set: 2, weight: 42.5, reps: 10 },
+                { set: 3, weight: 42.5, reps: 7 }
             ]
         },
 
-        "Lower Back Raises": {
-            repTarget: "12 - 15",
-            setTarget: "3 - 4",
+        "Single Arm Row ( Dumbbell )": {
+            repTarget: "10 - 15",
+            setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: "BW", reps: 15 },
-                { set: 2, weight: "BW", reps: 15 },
-                { set: 3, weight: "BW", reps: 15 }
+                { set: 1, weight: 20, reps: 15 },
+                { set: 2, weight: 20, reps: 15 },
+                { set: 3, weight: 20, reps: 14 }
             ]
         },
 
         "Neck Extensions": {
-            repTarget: "15 - 20",
-            setTarget: "3 - 4",
+            repTarget: "15 - 25",
+            setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 0, reps: 20 },
-                { set: 2, weight: 0, reps: 20 },
-                { set: 3, weight: 0, reps: 20 }
+                { set: 1, weight: 1.25, reps: 22 },
+                { set: 2, weight: 1.25, reps: 17 },
+                { set: 3, weight: 1.25, reps: 15 }
             ]
         }
     },
@@ -458,6 +448,7 @@ function renderConditionView() {
                     <select id="runningLocation">
                         <option value="Enköping">Enköping</option>
                         <option value="Bålsta">Bålsta</option>
+                        <option value="Sala">Sala</option>
                     </select>
                 </div>
 
