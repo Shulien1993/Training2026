@@ -729,6 +729,32 @@ function saveRunningSessions() {
     saveToSupabase();
 }
 
+function deleteRunningSession(sessionId) {
+
+    if (!confirm("Vill du ta bort detta löppass?")) {
+        return;
+    }
+
+    runningSessions = runningSessions.filter(
+        session => session.id !== sessionId
+    );
+
+    if (workoutCount.Kondition > 0) {
+        workoutCount.Kondition--;
+    }
+
+    localStorage.setItem(
+        "workoutCount",
+        JSON.stringify(workoutCount)
+    );
+
+    saveRunningSessions();
+
+    renderPage();
+}
+
+window.deleteRunningSession = deleteRunningSession;
+
 function updateCompleteWorkoutButton() {
     if (activeWorkout === "Alla" || activeWorkout === "Kondition") {
         completeWorkoutBtn.classList.add("hidden");
@@ -893,13 +919,6 @@ function convertTimeToSeconds(time) {
 
     return 999999;
 }
-
-localStorage.setItem("workoutCount", JSON.stringify(workoutCount));
-saveRunningSessions();
-
-renderPage();
-
-window.deleteRunningSession = deleteRunningSession;
 
 // HÄMTA TRÄNINGSDATA FRÅN SUPABASE
 
