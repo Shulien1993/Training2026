@@ -712,10 +712,12 @@ function findSetById(id) {
 
 function saveCompletedSets() {
     localStorage.setItem("completedSets", JSON.stringify(completedSets));
+    saveToSupabase();
 }
 
 function saveWorkoutCount() {
     localStorage.setItem("workoutCount", JSON.stringify(workoutCount));
+    saveToSupabase();
 }
 
 function saveRunningSessions() {
@@ -723,6 +725,8 @@ function saveRunningSessions() {
         "runningSessions",
         JSON.stringify(runningSessions)
     );
+
+    saveToSupabase();
 }
 
 function updateCompleteWorkoutButton() {
@@ -890,36 +894,121 @@ function convertTimeToSeconds(time) {
     return 999999;
 }
 
-function deleteRunningSession(sessionId) {
+localStorage.setItem("workoutCount", JSON.stringify(workoutCount));
+saveRunningSessions();
 
-    if (!confirm("Vill du ta bort detta löppass?")) {
-        return;
-    }
+renderPage();
 
-    runningSessions = runningSessions.filter(
-        session => session.id !== sessionId
-    );
-
-    if (workoutCount.Kondition > 0) {
-        workoutCount.Kondition--;
-    }
-
-    saveWorkoutCount();
-    saveRunningSessions();
-
-    renderPage();
-}
 window.deleteRunningSession = deleteRunningSession;
 
+// HÄMTA TRÄNINGSDATA FRÅN SUPABASE
+
+async function loadFromSupabase() {
+
+    const { data: { user }, error: userError } =
+        await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        console.error("Kunde inte identifiera användaren:", userError);
+        return false;
+    }
+
+    const { data, error } = await supabaseClient
+        .from("workout_data")
+        .select("completed_sets, workout_count, running_sessions")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    if (error) {
+        console.error("Kunde inte hämta träningsdata:", error);
+        return false;
+    }
+
+    // Finns ingen data i Supabase ännu?
+    if (!data) {
+        console.log("Ingen träningsdata finns i Supabase ännu.");
+        return true;
+    }
+
+    // Uppdatera våra JavaScript-variabler
+    completedSets = data.completed_sets || {};
+    workoutCount = data.workout_count || {};
+    runningSessions = data.running_sessions || [];
+
+    // Spara även lokalt som en extra kopia
+    localStorage.setItem(
+        "completedSets",
+        JSON.stringify(completedSets)
+    );
+
+    localStorage.setItem(
+        "workoutCount",
+        JSON.stringify(workoutCount)
+    );
+
+    localStorage.setItem(
+        "runningSessions",
+        JSON.stringify(runningSessions)
+    );
+
+    console.log("Träningsdata hämtad från Supabase!");
+
+    return true;
+}
+
+// SPARA TRÄNINGSDATA TILL SUPABASE
+
+async function saveToSupabase() {
+
+    const { data: { user }, error: userError } =
+        await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        console.error("Ingen inloggad användare:", userError);
+        return false;
+    }
+
+    const { error } = await supabaseClient
+        .from("workout_data")
+        .upsert({
+            user_id: user.id,
+            completed_sets: completedSets,
+            workout_count: workoutCount,
+            running_sessions: runningSessions,
+            updated_at: new Date().toISOString()
+        }, {
+            onConflict: "user_id"
+        });
+
+    if (error) {
+        console.error("Kunde inte spara träningsdata:", error);
+        return false;
+    }
+
+    console.log("Träningsdata sparad i Supabase!");
+
+    return true;
+}
+
 async function initApp() {
+
     const loggedIn = await loginToSupabase();
 
     if (!loggedIn) {
-        console.warn("Supabase-inloggningen kunde inte slutföras.");
+        console.error("Kunde inte logga in på Supabase.");
+        return;
+    }
+
+    const loaded = await loadFromSupabase();
+
+    if (!loaded) {
+        console.error("Kunde inte hämta träningsdata.");
         return;
     }
 
     renderPage();
+
+    console.log("Träningsloggen är synkroniserad!");
 }
 
 initApp();
