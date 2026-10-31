@@ -1,3 +1,51 @@
+// SUPABASE CONNECTION
+
+const SUPABASE_URL = "https://mebnvbaglydeegzfjotz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_vlA-cs_kUFXtN0AZ5fGNZA_6hc7VWHV";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+// SUPABASE AUTHENTICATION
+
+async function loginToSupabase() {
+    const { data: { session }, error: sessionError } =
+        await supabaseClient.auth.getSession();
+
+    if (sessionError) {
+        console.error("Kunde inte kontrollera inloggningen:", sessionError);
+        return false;
+    }
+
+    // Redan inloggad
+    if (session) {
+        return true;
+    }
+
+    // Första inloggningen på enheten
+    const email = prompt("Ange din e-postadress:");
+    if (!email) return false;
+
+    const password = prompt("Ange ditt lösenord:");
+    if (!password) return false;
+
+    const { error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password
+    });
+
+    if (error) {
+        console.error("Inloggningen misslyckades:", error);
+        alert("Kunde inte logga in. Kontrollera dina uppgifter.");
+        return false;
+    }
+
+    console.log("Inloggad i Supabase!");
+    return true;
+}
+
 const contentArea = document.getElementById("contentArea");
 const workoutPanel = document.getElementById("workoutPanel");
 const sectionTitle = document.getElementById("sectionTitle");
@@ -26,7 +74,7 @@ const tabButtons = document.querySelectorAll(".tab-btn");
 let activeWorkout = "Alla";
 let activeExercise = null;
 
-let workoutCount = {
+let workoutCount = JSON.parse(localStorage.getItem("workoutCount")) || {
     Rygg: 10,
     Ben: 0,
     Bröst: 0,
@@ -862,4 +910,16 @@ function deleteRunningSession(sessionId) {
     renderPage();
 }
 window.deleteRunningSession = deleteRunningSession;
-renderPage();
+
+async function initApp() {
+    const loggedIn = await loginToSupabase();
+
+    if (!loggedIn) {
+        console.warn("Supabase-inloggningen kunde inte slutföras.");
+        return;
+    }
+
+    renderPage();
+}
+
+initApp();
