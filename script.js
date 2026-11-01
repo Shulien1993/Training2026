@@ -98,18 +98,18 @@ const workoutTemplates = {
             ]
         },
 
-                "Chin Ups ( Bodyweight )": {
+        "Chin Ups ( Bodyweight )": {
             repTarget: "6 - 10",
             setTarget: "1 - 4",
             sets: [
                 { set: 1, weight: "BW", reps: 6 },
                 { set: 2, weight: "BW", reps: 6 },
                 { set: 3, weight: "BW", reps: 6 },
-                { set: 3, weight: "BW", reps: 6 }
+                { set: 4, weight: "BW", reps: 6 }
             ]
         },
 
-                "Barbell Bent Over Row": {
+        "Barbell Bent Over Row": {
             repTarget: "6 - 10",
             setTarget: "3 - 4",
             sets: [
@@ -138,6 +138,59 @@ const workoutTemplates = {
                 { set: 3, weight: 1.25, reps: 15 }
             ]
         }
+    },
+
+    Bröst: {
+        "Bench Press ( Barbell )": {
+            repTarget: "4 - 6",
+            setTarget: "2 - 4",
+            sets: [
+                { set: 1, weight: 65, reps: 6 },
+                { set: 2, weight: 65, reps: 6 },
+                { set: 3, weight: 65, reps: 5 },
+                { set: 4, weight: 65, reps: 4 }
+            ]
+        },
+
+        "Incline Bench Press ( Barbell )": {
+            repTarget: "6 - 10",
+            setTarget: "2 - 4",
+            sets: [
+                { set: 1, weight: 65, reps: 10 },
+                { set: 2, weight: 65, reps: 10 },
+                { set: 3, weight: 65, reps: 9 }
+            ]
+        },
+
+        "Chest Flyes ( Dumbell )": {
+            repTarget: "12 - 15",
+            setTarget: "1 - 3",
+            sets: [
+                { set: 1, weight: 17.5, reps: 12 },
+                { set: 2, weight: 17.5, reps: 12 },
+                { set: 3, weight: 17.5, reps: 12 }
+            ]
+        },
+
+        "Pullover ( Dumbell )": {
+            repTarget: "10 - 15",
+            setTarget: "1 - 3",
+            sets: [
+                { set: 1, weight: 20, reps: 15 },
+                { set: 2, weight: 20, reps: 12 },
+                { set: 3, weight: 20, reps: 12 }
+            ]
+        },
+
+        "Abs Wheel Rollout": {
+            repTarget: "11 - 16",
+            setTarget: "1 - 3",
+            sets: [
+                { set: 1, weight: "BW", reps: 16 },
+                { set: 2, weight: "BW", reps: 16 },
+                { set: 3, weight: "BW", reps: 16 }
+            ]
+        },
     },
 
     Ben: {
@@ -259,10 +312,21 @@ const workoutTemplates = {
             repTarget: "6 - 8",
             setTarget: "3 - 4",
             sets: [
-                { set: 1, weight: 42.5, reps: 8 },
-                { set: 2, weight: 42.5, reps: 7 },
-                { set: 3, weight: 42.5, reps: 7 },
-                { set: 4, weight: 42.5, reps: 7 }
+                { set: 1, weight: 45, reps: 8 },
+                { set: 2, weight: 45, reps: 6 },
+                { set: 3, weight: 45, reps: 6 },
+                { set: 4, weight: 45, reps: 6 }
+            ]
+        },
+
+        "Standing French Press ( Barbell )": {
+            repTarget: "6 - 10",
+            setTarget: "3 - 4",
+            sets: [
+                { set: 1, weight: 42.5, reps: 10 },
+                { set: 2, weight: 42.5, reps: 9 },
+                { set: 3, weight: 42.5, reps: 6 },
+                { set: 4, weight: 42.5, reps: 6 }
             ]
         },
 
@@ -270,9 +334,9 @@ const workoutTemplates = {
             repTarget: "8 - 12",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 20, reps: 12 },
-                { set: 2, weight: 20, reps: 12 },
-                { set: 3, weight: 20, reps: 12 }
+                { set: 1, weight: 20, reps: 11 },
+                { set: 2, weight: 20, reps: 8 },
+                { set: 3, weight: 20, reps: 8 }
             ]
         },
 
@@ -280,9 +344,9 @@ const workoutTemplates = {
             repTarget: "8 - 12",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 42.5, reps: 10 },
-                { set: 2, weight: 42.5, reps: 9 },
-                { set: 3, weight: 42.5, reps: 9 }
+                { set: 1, weight: 42.5, reps: 12 },
+                { set: 2, weight: 42.5, reps: 12 },
+                { set: 3, weight: 42.5, reps: 11 }
             ]
         },
 
@@ -290,75 +354,13 @@ const workoutTemplates = {
             repTarget: "8 - 12",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 1.25, reps: 10 },
-                { set: 2, weight: 1.25, reps: 9 },
-                { set: 3, weight: 1.25, reps: 9 }
+                { set: 1, weight: 1.25, reps: 12 },
+                { set: 2, weight: 1.25, reps: 12 },
+                { set: 3, weight: 1.25, reps: 10 }
             ]
         },
     },
-    Bröst: {
-        "Bench Press ( Barbell )": {
-            repTarget: "4 - 6",
-            setTarget: "2 - 4",
-            sets: [
-                { set: 1, weight: 62.5, reps: 6 },
-                { set: 2, weight: 62.5, reps: 6 },
-                { set: 3, weight: 62.5, reps: 6 },
-                { set: 4, weight: 62.5, reps: 4 }
-            ]
-        },
 
-        "Incline Bench Press ( Barbell )": {
-            repTarget: "8 - 10",
-            setTarget: "2 - 4",
-            sets: [
-                { set: 1, weight: 62.5, reps: 10 },
-                { set: 2, weight: 62.5, reps: 10 },
-                { set: 3, weight: 62.5, reps: 10 },
-                { set: 4, weight: 62.5, reps: 8 }
-            ]
-        },
-
-        "Decline Bench Press ( Barbell )": {
-            repTarget: "6 - 8",
-            setTarget: "1 - 3",
-            sets: [
-                { set: 1, weight: 65, reps: 6 },
-                { set: 2, weight: 65, reps: 6 },
-                { set: 3, weight: 65, reps: 6 }
-            ]
-        },
-
-        "Pullover ( Dumbell )": {
-            repTarget: "10 - 12",
-            setTarget: "1 - 3",
-            sets: [
-                { set: 1, weight: 20, reps: 12 },
-                { set: 2, weight: 20, reps: 12 },
-                { set: 3, weight: 20, reps: 12 }
-            ]
-        },
-
-        "Chest Flyes ( Dumbell )": {
-            repTarget: "12 - 15",
-            setTarget: "1 - 3",
-            sets: [
-                { set: 1, weight: 15, reps: 15 },
-                { set: 2, weight: 15, reps: 14 },
-                { set: 3, weight: 15, reps: 13 }
-            ]
-        },
-
-        "Abs Wheel Rollout": {
-            repTarget: "11 - 16",
-            setTarget: "1 - 3",
-            sets: [
-                { set: 1, weight: "BW", reps: 16 },
-                { set: 2, weight: "BW", reps: 16 },
-                { set: 3, weight: "BW", reps: 16 }
-            ]
-        },
-    },
     Kondition: {},
 
 };
@@ -636,26 +638,26 @@ function updateStats() {
 
     let bestWeight = 0;
 
-if (activeWorkout === "Kondition") {
-    const bestRun = getBestRunningTime("Löpning");
-    const bestInterval = getBestRunningTime("Intervall");
+    if (activeWorkout === "Kondition") {
+        const bestRun = getBestRunningTime("Löpning");
+        const bestInterval = getBestRunningTime("Intervall");
 
-    intervalStatCard.classList.remove("hidden");
+        intervalStatCard.classList.remove("hidden");
 
-    personalBest.textContent =
-        bestRun || "Ingen tid";
+        personalBest.textContent =
+            bestRun || "Ingen tid";
 
-    intervalBest.textContent =
-        bestInterval || "Ingen tid";
+        intervalBest.textContent =
+            bestInterval || "Ingen tid";
 
-    completedWorkouts.textContent =
-        runningSessions.length;
+        completedWorkouts.textContent =
+            runningSessions.length;
 
-    completedWorkoutsLabel.textContent =
-        "Pass gjorda";
+        completedWorkoutsLabel.textContent =
+            "Pass gjorda";
 
-    return;
-}
+        return;
+    }
 
     intervalStatCard.classList.add("hidden");
 
