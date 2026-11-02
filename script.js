@@ -75,12 +75,12 @@ let activeWorkout = "Alla";
 let activeExercise = null;
 
 let workoutCount = JSON.parse(localStorage.getItem("workoutCount")) || {
-    Rygg: 10,
-    Ben: 0,
-    Bröst: 0,
-    Axlar: 0,
-    Armar: 0,
-    Kondition: 0
+    Rygg: 20,
+    Ben: 19,
+    Bröst: 21,
+    Axlar: 21,
+    Armar: 18,
+    Kondition: 15
 };
 
 let completedSets = JSON.parse(localStorage.getItem("completedSets")) || {};
@@ -456,22 +456,48 @@ function renderWorkoutView() {
     const grid = document.createElement("div");
     grid.classList.add("exercise-grid");
 
-    Object.keys(workout).forEach(exerciseName => {
-        const card = document.createElement("article");
-        card.classList.add("exercise-card");
+Object.keys(workout).forEach(exerciseName => {
 
-        card.innerHTML = `
-            <h3>${exerciseName}</h3>
-            <p>Klicka för att öppna set, vikt och reps.</p>
-        `;
+    const card = document.createElement("article");
+    card.classList.add("exercise-card");
 
-        card.addEventListener("click", function () {
-            activeExercise = exerciseName;
-            renderPage();
+    // Hämta övningens samtliga set
+    const sets = workout[exerciseName].sets;
+
+    // Kontrollera om alla set är genomförda
+    const allSetsCompleted =
+        sets.length > 0 &&
+        sets.every(setData => {
+
+            const setId =
+                `${activeWorkout}-${exerciseName}-set-${setData.set}`;
+
+            return completedSets[setId] === true;
+
         });
 
-        grid.appendChild(card);
+    // Gör hela kortet grönt om alla set är klara
+    if (allSetsCompleted) {
+        card.classList.add("exercise-completed");
+    }
+
+    card.innerHTML = `
+        <h3>${exerciseName}</h3>
+        <p>
+            ${allSetsCompleted
+                ? "✓ Alla set genomförda"
+                : "Klicka för att öppna set, vikt och reps."}
+        </p>
+    `;
+
+    card.addEventListener("click", function () {
+        activeExercise = exerciseName;
+        renderPage();
     });
+
+    grid.appendChild(card);
+
+});
 
     contentArea.appendChild(grid);
 }
@@ -634,62 +660,95 @@ function renderExerciseDetail() {
 }
 
 function updateStats() {
-    const doneSetIds = Object.keys(completedSets);
 
-    let bestWeight = 0;
-
+    // KONDITION
     if (activeWorkout === "Kondition") {
+
         const bestRun = getBestRunningTime("Löpning");
         const bestInterval = getBestRunningTime("Intervall");
 
         intervalStatCard.classList.remove("hidden");
 
-        personalBest.textContent =
-            bestRun || "Ingen tid";
+        personalBest.textContent = bestRun || "Ingen tid";
+        personalBestLabel.textContent = "Löpning - Personbästa";
 
-        intervalBest.textContent =
-            bestInterval || "Ingen tid";
+        intervalBest.textContent = bestInterval || "Ingen tid";
+        intervalBestLabel.textContent = "Intervall - Personbästa";
 
-        completedWorkouts.textContent =
-            runningSessions.length;
-
-        completedWorkoutsLabel.textContent =
-            "Pass gjorda";
+        completedWorkouts.textContent = runningSessions.length;
+        completedWorkoutsLabel.textContent = "Pass gjorda";
 
         return;
     }
 
+    // STYRKETRÄNING
     intervalStatCard.classList.add("hidden");
 
-    personalBestLabel.textContent = "Löpning - Personbästa";
-    completedWorkoutsLabel.textContent = "Pass gjorda";
+    let bestWeight = 0;
+    let bestExercise = "";
 
-    doneSetIds.forEach(id => {
-        const setData = findSetById(id);
+    // Bestäm vilka träningskategorier som ska kontrolleras
+    const workoutsToCheck =
+        activeWorkout === "Alla"
+            ? ["Rygg", "Bröst", "Ben", "Axlar", "Armar"]
+            : [activeWorkout];
 
-        if (setData && typeof setData.weight === "number") {
-            if (setData.weight > bestWeight) {
-                bestWeight = setData.weight;
-            }
-        }
+    workoutsToCheck.forEach(workoutName => {
+
+        const workout = workoutTemplates[workoutName];
+
+        if (!workout) return;
+
+        Object.entries(workout).forEach(([exerciseName, exerciseData]) => {
+
+            exerciseData.sets.forEach(setData => {
+
+                if (typeof setData.weight !== "number") return;
+
+                if (setData.weight > bestWeight) {
+
+                    bestWeight = setData.weight;
+                    bestExercise = exerciseName;
+
+                }
+
+            });
+
+        });
+
     });
 
-    personalBest.textContent = `${bestWeight} kg`;
+    // Visa personbästa
+    personalBest.textContent = bestWeight > 0
+        ? `${bestWeight.toString().replace(".", ",")} kg`
+        : "Inget rekord";
+
+    personalBestLabel.textContent = bestExercise
+        ? `${bestExercise} - Personbästa`
+        : "Personbästa";
+
+    // ANTAL GENOMFÖRDA PASS
+    completedWorkoutsLabel.textContent = "Pass gjorda";
 
     if (activeWorkout === "Alla") {
+
         const totalPasses =
-            workoutCount.Rygg +
-            workoutCount.Ben +
-            workoutCount.Bröst +
-            workoutCount.Axlar +
-            workoutCount.Armar +
-            workoutCount.Kondition;
+            (workoutCount.Rygg || 0) +
+            (workoutCount.Ben || 0) +
+            (workoutCount.Bröst || 0) +
+            (workoutCount.Axlar || 0) +
+            (workoutCount.Armar || 0) +
+            (workoutCount.Kondition || 0);
 
         completedWorkouts.textContent = totalPasses;
+
     } else {
+
         completedWorkouts.textContent =
             workoutCount[activeWorkout] || 0;
+
     }
+
 }
 
 function findSetById(id) {

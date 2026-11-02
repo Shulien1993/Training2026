@@ -83,7 +83,6 @@ body {
     margin: 0 auto;
 }
 
-
 /* ========================================
    HERO
 ======================================== */
@@ -171,7 +170,6 @@ body {
     box-shadow: var(--shadow-accent);
 }
 
-
 /* ========================================
    STATISTIK
 ======================================== */
@@ -254,7 +252,6 @@ body {
     color: var(--text-secondary);
     font-size: 14px;
 }
-
 
 /* ========================================
    HUVUDPANEL
@@ -345,7 +342,6 @@ button:active {
     display: none !important;
 }
 
-
 /* ========================================
    ÖVNINGSKORT
 ======================================== */
@@ -416,7 +412,6 @@ button:active {
     line-height: 1.5;
 }
 
-
 /* ========================================
    MÅLRUTA
 ======================================== */
@@ -449,7 +444,6 @@ button:active {
     color: var(--accent);
     font-size: 1.45rem;
 }
-
 
 /* ========================================
    SET
@@ -529,7 +523,6 @@ button:active {
     border-radius: 15px;
 }
 
-
 /* ========================================
    MARKERA PASS KLART
 ======================================== */
@@ -561,7 +554,6 @@ button:active {
     border: 1px solid rgba(34, 197, 94, 0.5);
     box-shadow: var(--shadow-small);
 }
-
 
 /* ========================================
    KONDITION
@@ -718,7 +710,6 @@ button:active {
     box-shadow: none;
 }
 
-
 /* ========================================
    SCROLLBAR
 ======================================== */
@@ -786,6 +777,29 @@ button:active {
     display: none !important;
 }
 
+/* GENOMFÖRD ÖVNING */
+
+.exercise-card.exercise-completed {
+    background: #a3e635;
+    border: 1px solid #a3e635;
+    color: #111827;
+    transition: all 0.25s ease;
+}
+
+.exercise-card.exercise-completed h3 {
+    color: #111827;
+}
+
+.exercise-card.exercise-completed p {
+    color: #1f2937;
+}
+
+/* Hover-effekt på genomförd övning */
+
+.exercise-card.exercise-completed:hover {
+    background: #bef264;
+    border-color: #bef264;
+}
 
 /* ========================================
    RESPONSIV DESIGN
@@ -963,6 +977,7 @@ button:active {
         grid-template-columns: 1fr;
     }
 }
+
 /* ========================================
    FÖRBÄTTRAD MOBILANPASSNING
 ======================================== */
@@ -1043,7 +1058,6 @@ button:active {
         box-shadow: 0 5px 20px rgba(163, 230, 53, 0.15);
     }
 
-
     /* STATISTIK */
 
     .stats-grid,
@@ -1078,7 +1092,6 @@ button:active {
         line-height: 1.4;
     }
 
-
     /* HUVUDPANEL */
 
     .panel {
@@ -1105,7 +1118,6 @@ button:active {
         min-width: 0;
     }
 
-
     /* ÖVNINGSKORT */
 
     .exercise-grid {
@@ -1125,7 +1137,6 @@ button:active {
     .exercise-card p {
         font-size: 13px;
     }
-
 
     /* SET OCH REPETITIONER */
 
@@ -1163,7 +1174,6 @@ button:active {
         font-size: 14px;
     }
 
-
     /* MÅLRUTOR */
 
     .target-box {
@@ -1178,7 +1188,6 @@ button:active {
     .target-box strong {
         font-size: 1.2rem;
     }
-
 
     /* KONDITION */
 
@@ -1287,7 +1296,6 @@ button:active {
     }
 
 }
-
 
 /* ========================================
    EXTRA SMÅ MOBILSKÄRMAR
