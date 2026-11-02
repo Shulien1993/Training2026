@@ -456,32 +456,32 @@ function renderWorkoutView() {
     const grid = document.createElement("div");
     grid.classList.add("exercise-grid");
 
-Object.keys(workout).forEach(exerciseName => {
+    Object.keys(workout).forEach(exerciseName => {
 
-    const card = document.createElement("article");
-    card.classList.add("exercise-card");
+        const card = document.createElement("article");
+        card.classList.add("exercise-card");
 
-    // Hämta övningens samtliga set
-    const sets = workout[exerciseName].sets;
+        // Hämta övningens samtliga set
+        const sets = workout[exerciseName].sets;
 
-    // Kontrollera om alla set är genomförda
-    const allSetsCompleted =
-        sets.length > 0 &&
-        sets.every(setData => {
+        // Kontrollera om alla set är genomförda
+        const allSetsCompleted =
+            sets.length > 0 &&
+            sets.every(setData => {
 
-            const setId =
-                `${activeWorkout}-${exerciseName}-set-${setData.set}`;
+                const setId =
+                    `${activeWorkout}-${exerciseName}-set-${setData.set}`;
 
-            return completedSets[setId] === true;
+                return completedSets[setId] === true;
 
-        });
+            });
 
-    // Gör hela kortet grönt om alla set är klara
-    if (allSetsCompleted) {
-        card.classList.add("exercise-completed");
-    }
+        // Gör hela kortet grönt om alla set är klara
+        if (allSetsCompleted) {
+            card.classList.add("exercise-completed");
+        }
 
-    card.innerHTML = `
+        card.innerHTML = `
         <h3>${exerciseName}</h3>
         <p>
             ${allSetsCompleted
@@ -490,14 +490,14 @@ Object.keys(workout).forEach(exerciseName => {
         </p>
     `;
 
-    card.addEventListener("click", function () {
-        activeExercise = exerciseName;
-        renderPage();
+        card.addEventListener("click", function () {
+            activeExercise = exerciseName;
+            renderPage();
+        });
+
+        grid.appendChild(card);
+
     });
-
-    grid.appendChild(card);
-
-});
 
     contentArea.appendChild(grid);
 }
@@ -675,7 +675,7 @@ function updateStats() {
         intervalBest.textContent = bestInterval || "Ingen tid";
         intervalBestLabel.textContent = "Intervall - Personbästa";
 
-        completedWorkouts.textContent = runningSessions.length;
+        completedWorkouts.textContent = workoutCount.Kondition || 0;
         completedWorkoutsLabel.textContent = "Pass gjorda";
 
         return;
