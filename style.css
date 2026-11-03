@@ -80,6 +80,7 @@ body {
 .app {
     width: 100%;
     max-width: 1150px;
+    position: relative;
     margin: 0 auto;
 }
 
@@ -1326,6 +1327,99 @@ button:active {
 
     .target-box {
         grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==========================
+   SETTINGS
+========================== */
+
+.settings-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.settings-btn {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1f2937;
+    color: #a3e635;
+
+    border: 1px solid #374151;
+    border-radius: 12px;
+
+    font-size: 25px;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.settings-btn:hover {
+    background: #374151;
+    border-color: #a3e635;
+}
+
+.settings-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+
+    min-width: 200px;
+    padding: 8px;
+
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.settings-menu.hidden {
+    display: none;
+}
+
+.reset-workouts-btn {
+    width: 100%;
+    padding: 12px 14px;
+
+    background: transparent;
+    color: #f87171;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.reset-workouts-btn:hover {
+    background: rgba(248, 113, 113, 0.12);
+}
+
+/* MOBIL */
+
+@media (max-width: 600px) {
+
+    .settings-container {
+        top: 12px;
+        right: 12px;
+    }
+
+    .settings-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 23px;
     }
 
 }

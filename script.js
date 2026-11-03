@@ -71,6 +71,68 @@ const completedWorkoutsLabel =
 
 const tabButtons = document.querySelectorAll(".tab-btn");
 
+// SETTINGS
+
+const settingsBtn = document.getElementById("settingsBtn");
+const settingsMenu = document.getElementById("settingsMenu");
+const resetWorkoutsBtn = document.getElementById("resetWorkoutsBtn");
+
+// Öppna och stäng inställningsmenyn
+
+settingsBtn.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    settingsMenu.classList.toggle("hidden");
+
+    settingsBtn.setAttribute(
+        "aria-expanded",
+        !settingsMenu.classList.contains("hidden")
+    );
+
+});
+
+// Stäng menyn om man klickar utanför
+
+document.addEventListener("click", function (event) {
+
+    if (!event.target.closest(".settings-container")) {
+
+        settingsMenu.classList.add("hidden");
+
+        settingsBtn.setAttribute("aria-expanded", "false");
+
+    }
+
+});
+
+// RESET WORKOUTS
+
+resetWorkoutsBtn.addEventListener("click", function () {
+
+    const confirmed = confirm(
+        "Vill du återställa alla markerade set och övningar?\n\n" +
+        "Dina genomförda träningspass och träningsresultat påverkas inte."
+    );
+
+    if (!confirmed) return;
+
+    // Ta bort alla klarmarkeringar
+    completedSets = {};
+
+    // Spara lokalt och i Supabase
+    saveCompletedSets();
+
+    // Uppdatera sidan
+    renderPage();
+
+    // Stäng inställningsmenyn
+    settingsMenu.classList.add("hidden");
+
+    settingsBtn.setAttribute("aria-expanded", "false");
+
+});
+
 let activeWorkout = "Alla";
 let activeExercise = null;
 
