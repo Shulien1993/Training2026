@@ -282,9 +282,9 @@ const workoutTemplates = {
             repTarget: "12 - 15",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 17.5, reps: 13 },
-                { set: 2, weight: 17.5, reps: 12 },
-                { set: 3, weight: 17.5, reps: 12 }
+                { set: 1, weight: 15, reps: 15 },
+                { set: 2, weight: 15, reps: 15 },
+                { set: 3, weight: 15, reps: 15 }
             ]
         },
 
