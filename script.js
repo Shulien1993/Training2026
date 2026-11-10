@@ -521,7 +521,7 @@ completeWorkoutBtn.addEventListener("click", function () {
 function renderPage() {
     updateCompleteWorkoutButton();
 
-    currentView.textContent = activeWorkout;
+    currentView.textContent = activeWorkout.replaceAll("_", " ");
 
     if (activeWorkout === "Alla") {
         renderAllView();
@@ -555,7 +555,7 @@ function renderAllView() {
 
 function renderWorkoutView() {
     backBtn.classList.add("hidden");
-    sectionTitle.textContent = `${activeWorkout} - färdiga övningar`;
+    sectionTitle.textContent = `${activeWorkout.replaceAll("_", " ")} - färdiga övningar`;
 
     const workout = workoutTemplates[activeWorkout];
 
@@ -940,7 +940,7 @@ function updateCompleteWorkoutButton() {
     }
 
     completeWorkoutBtn.classList.remove("hidden");
-    completeWorkoutBtn.textContent = `Markera ${activeWorkout.toLowerCase()}pass klart`;
+    completeWorkoutBtn.textContent = `Markera ${activeWorkout.replaceAll("_", " ").toLowerCase()}pass klart`;
 }
 
 function saveRunningSession() {
