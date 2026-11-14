@@ -177,9 +177,10 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .stat-card,
@@ -735,12 +736,13 @@ button:active {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
+    width: 100%;
 }
 
 .stats-grid:has(#intervalStatCard:not(.hidden)) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .cardio-stat-card {
@@ -1422,4 +1424,11 @@ button:active {
         font-size: 23px;
     }
 
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
 }

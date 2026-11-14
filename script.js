@@ -54,7 +54,6 @@ const completeWorkoutBtn = document.getElementById("completeWorkoutBtn");
 
 const personalBest = document.getElementById("personalBest");
 const completedWorkouts = document.getElementById("completedWorkouts");
-const currentView = document.getElementById("currentView");
 const personalBestLabel = document.getElementById("personalBestLabel");
 
 const intervalStatCard = document.getElementById("intervalStatCard");
@@ -520,8 +519,6 @@ completeWorkoutBtn.addEventListener("click", function () {
 
 function renderPage() {
     updateCompleteWorkoutButton();
-
-    currentView.textContent = activeWorkout.replaceAll("_", " ");
 
     if (activeWorkout === "Alla") {
         renderAllView();
