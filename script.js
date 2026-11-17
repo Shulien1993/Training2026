@@ -155,7 +155,7 @@ const workoutTemplates = {
             sets: [
                 { set: 1, weight: 105, reps: 6 },
                 { set: 2, weight: 105, reps: 6 },
-                { set: 3, weight: 105, reps: 5
+                { set: 3, weight: 105, reps: 6
                  }
             ]
         },        
@@ -165,7 +165,7 @@ const workoutTemplates = {
             setTarget: "1 - 4",
             sets: [
                 { set: 1, weight: "BW", reps: 7 },
-                { set: 2, weight: "BW", reps: 6 },
+                { set: 2, weight: "BW", reps: 7 },
                 { set: 3, weight: "BW", reps: 6 },
                 { set: 4, weight: "BW", reps: 6 }
             ]
@@ -177,7 +177,7 @@ const workoutTemplates = {
             sets: [
                 { set: 1, weight: 42.5, reps: 10 },
                 { set: 2, weight: 42.5, reps: 10 },
-                { set: 3, weight: 42.5, reps: 8 }
+                { set: 3, weight: 42.5, reps: 9 }
             ]
         },
 
@@ -195,7 +195,7 @@ const workoutTemplates = {
             repTarget: "15 - 25",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 1.25, reps: 23 },
+                { set: 1, weight: 1.25, reps: 24 },
                 { set: 2, weight: 1.25, reps: 17 },
                 { set: 3, weight: 1.25, reps: 15 }
             ]
@@ -263,7 +263,7 @@ const workoutTemplates = {
                 { set: 1, weight: 65, reps: 6 },
                 { set: 2, weight: 65, reps: 6 },
                 { set: 3, weight: 65, reps: 6 },
-                { set: 4, weight: 65, reps: 4 }
+                { set: 4, weight: 65, reps: 5 }
             ]
         },
 
@@ -271,9 +271,9 @@ const workoutTemplates = {
             repTarget: "6 - 10",
             setTarget: "2 - 4",
             sets: [
-                { set: 1, weight: 65, reps: 10 },
-                { set: 2, weight: 65, reps: 10 },
-                { set: 3, weight: 65, reps: 10 }
+                { set: 1, weight: 67.5, reps: 6 },
+                { set: 2, weight: 67.5, reps: 6 },
+                { set: 3, weight: 67.5, reps: 6 }
             ]
         },
 
@@ -281,9 +281,9 @@ const workoutTemplates = {
             repTarget: "12 - 15",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 15, reps: 15 },
-                { set: 2, weight: 15, reps: 15 },
-                { set: 3, weight: 15, reps: 15 }
+                { set: 1, weight: 17.5, reps: 14 },
+                { set: 2, weight: 17.5, reps: 12 },
+                { set: 3, weight: 17.5, reps: 12 }
             ]
         },
 
@@ -292,7 +292,7 @@ const workoutTemplates = {
             setTarget: "1 - 3",
             sets: [
                 { set: 1, weight: 20, reps: 15 },
-                { set: 2, weight: 20, reps: 13 },
+                { set: 2, weight: 20, reps: 14 },
                 { set: 3, weight: 20, reps: 12 }
             ]
         },
@@ -314,7 +314,7 @@ const workoutTemplates = {
             setTarget: "3 - 4",
             sets: [
                 { set: 1, weight: 45, reps: 8 },
-                { set: 2, weight: 45, reps: 7 },
+                { set: 2, weight: 45, reps: 8 },
                 { set: 3, weight: 45, reps: 6 },
                 { set: 4, weight: 45, reps: 6 }
             ]
@@ -326,7 +326,7 @@ const workoutTemplates = {
             sets: [
                 { set: 1, weight: 42.5, reps: 10 },
                 { set: 2, weight: 42.5, reps: 10 },
-                { set: 3, weight: 42.5, reps: 6 },
+                { set: 3, weight: 42.5, reps: 7 },
                 { set: 4, weight: 42.5, reps: 6 }
             ]
         },
@@ -336,7 +336,7 @@ const workoutTemplates = {
             setTarget: "1 - 3",
             sets: [
                 { set: 1, weight: 20, reps: 12 },
-                { set: 2, weight: 20, reps: 8 },
+                { set: 2, weight: 20, reps: 9 },
                 { set: 3, weight: 20, reps: 8 }
             ]
         },
@@ -345,9 +345,9 @@ const workoutTemplates = {
             repTarget: "8 - 12",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 42.5, reps: 12 },
-                { set: 2, weight: 42.5, reps: 12 },
-                { set: 3, weight: 42.5, reps: 12 }
+                { set: 1, weight: 45, reps: 8 },
+                { set: 2, weight: 45, reps: 8 },
+                { set: 3, weight: 45, reps: 8 }
             ]
         },
 
@@ -357,7 +357,7 @@ const workoutTemplates = {
             sets: [
                 { set: 1, weight: 1.25, reps: 12 },
                 { set: 2, weight: 1.25, reps: 12 },
-                { set: 3, weight: 1.25, reps: 11 }
+                { set: 3, weight: 1.25, reps: 12 }
             ]
         },
     },
@@ -368,7 +368,7 @@ const workoutTemplates = {
             setTarget: "1 - 3",
             sets: [
                 { set: 1, weight: 105, reps: 6 },
-                { set: 2, weight: 105, reps: 4 },
+                { set: 2, weight: 105, reps: 5 },
                 { set: 3, weight: 105, reps: 4 }
             ]
         },
@@ -378,7 +378,7 @@ const workoutTemplates = {
             setTarget: "1 - 3",
             sets: [
                 { set: 1, weight: 45, reps: 12 },
-                { set: 2, weight: 45, reps: 10 },
+                { set: 2, weight: 45, reps: 11 },
                 { set: 3, weight: 45, reps: 10 }
             ]
         },
@@ -388,7 +388,7 @@ const workoutTemplates = {
             setTarget: "1 - 3",
             sets: [
                 { set: 1, weight: 32.5, reps: 12 },
-                { set: 2, weight: 32.5, reps: 11 },
+                { set: 2, weight: 32.5, reps: 12 },
                 { set: 3, weight: 32.5, reps: 10 }
             ]
         },
@@ -399,7 +399,7 @@ const workoutTemplates = {
             sets: [
                 { set: 1, weight: 60, reps: 8 },
                 { set: 2, weight: 60, reps: 8 },
-                { set: 3, weight: 60, reps: 6 }
+                { set: 3, weight: 60, reps: 7 }
             ]
         },
 
@@ -417,7 +417,7 @@ const workoutTemplates = {
             repTarget: "15 - 25",
             setTarget: "1 - 3",     
             sets: [
-                { set: 1, weight: 1.25, reps: 21 },
+                { set: 1, weight: 1.25, reps: 22 },
                 { set: 2, weight: 1.25, reps: 16 },
                 { set: 3, weight: 1.25, reps: 15 }
             ]
@@ -429,7 +429,7 @@ const workoutTemplates = {
             setTarget: "1 - 4",
             sets: [
                 { set: 1, weight: 42.5, reps: 8 },
-                { set: 2, weight: 42.5, reps: 6 },
+                { set: 2, weight: 42.5, reps: 7 },
                 { set: 3, weight: 42.5, reps: 4 },
                 { set: 4, weight: 42.5, reps: 4 }
             ]
@@ -442,7 +442,7 @@ const workoutTemplates = {
                 { set: 1, weight: 10, reps: 20 },
                 { set: 2, weight: 10, reps: 20 },
                 { set: 3, weight: 10, reps: 20 },
-                { set: 4, weight: 10, reps: 18 }
+                { set: 4, weight: 10, reps: 19 }
             ]
         },
 
@@ -450,7 +450,7 @@ const workoutTemplates = {
             repTarget: "15 - 25",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 5, reps: 17 },
+                { set: 1, weight: 5, reps: 18 },
                 { set: 2, weight: 5, reps: 15 },
                 { set: 3, weight: 5, reps: 15 }
             ]
@@ -460,7 +460,7 @@ const workoutTemplates = {
             repTarget: "12 - 20",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: 62.5, reps: 15 },
+                { set: 1, weight: 62.5, reps: 16 },
                 { set: 2, weight: 62.5, reps: 12 },
                 { set: 3, weight: 62.5, reps: 12 }
             ]
@@ -470,7 +470,7 @@ const workoutTemplates = {
             repTarget: "10 - 14",
             setTarget: "1 - 3",
             sets: [
-                { set: 1, weight: "BW", reps: "31 sek" },
+                { set: 1, weight: "BW", reps: "32 sek" },
                 { set: 2, weight: "BW", reps: "31 sek" },
                 { set: 3, weight: "BW", reps: "31 sek" }
             ]
