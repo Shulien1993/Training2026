@@ -1432,3 +1432,110 @@ button:active {
         gap: 12px;
     }
 }
+
+/* ========================================
+   NOTES
+======================================== */
+
+.notes-section {
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 24px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-medium);
+}
+
+/* NOTES HEADER */
+
+.notes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.notes-header h2 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.notes-header span {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* TEXT AREA */
+
+.notes-textarea {
+    display: block;
+    width: 100%;
+    min-height: 180px;
+    padding: 18px;
+
+    background: rgba(8, 13, 18, 0.55);
+    color: var(--text-primary);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.7;
+
+    resize: vertical;
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* PLACEHOLDER */
+
+.notes-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* FOCUS */
+
+.notes-textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ========================================
+   NOTES - MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .notes-section {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .notes-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .notes-header span {
+        font-size: 11px;
+    }
+
+    .notes-textarea {
+        min-height: 150px;
+        padding: 14px;
+        font-size: 14px;
+    }
+
+}

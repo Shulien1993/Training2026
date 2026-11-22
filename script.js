@@ -146,6 +146,7 @@ let workoutCount = JSON.parse(localStorage.getItem("workoutCount")) || {
 
 let completedSets = JSON.parse(localStorage.getItem("completedSets")) || {};
 let runningSessions = JSON.parse(localStorage.getItem("runningSessions")) || [];
+let exerciseNotes = {};
 
 const workoutTemplates = {
     Rygg: {
@@ -771,6 +772,57 @@ function renderExerciseDetail() {
             renderPage();
         });
     });
+
+    // ========================================
+// NOTES – INDIVIDUELLA ÖVNINGSANTECKNINGAR
+// ========================================
+
+const notesKey = JSON.stringify([activeWorkout, activeExercise]);
+
+const notesSection = document.createElement("section");
+notesSection.className = "notes-section";
+
+notesSection.innerHTML = `
+    <div class="notes-header">
+        <h2>Notes</h2>
+        <span class="notes-status">Sparas automatiskt</span>
+    </div>
+
+    <textarea
+        class="notes-textarea"
+        placeholder="Skriv anteckningar om denna övning..."
+        aria-label="Anteckningar för ${activeExercise}"
+    ></textarea>
+`;
+
+const notesTextarea = notesSection.querySelector(".notes-textarea");
+const notesStatus = notesSection.querySelector(".notes-status");
+
+// Hämta anteckningar för den aktuella övningen
+notesTextarea.value = exerciseNotes[notesKey] || "";
+
+let notesSaveTimeout;
+
+notesTextarea.addEventListener("input", () => {
+    notesStatus.textContent = "Skriver...";
+
+    clearTimeout(notesSaveTimeout);
+
+    notesSaveTimeout = setTimeout(async () => {
+        exerciseNotes[notesKey] = notesTextarea.value;
+
+        notesStatus.textContent = "Sparar...";
+
+        const saved = await saveToSupabase();
+
+        notesStatus.textContent = saved
+            ? "✓ Sparat"
+            : "Kunde inte spara";
+    }, 500);
+});
+
+// Visa Notes under övningens innehåll
+contentArea.appendChild(notesSection);
 }
 
 function updateStats() {
@@ -1152,7 +1204,7 @@ async function loadFromSupabase() {
 
 // SPARA TRÄNINGSDATA TILL SUPABASE
 
-async function saveToSupabase() {
+ async function saveToSupabase() {
 
     const { data: { user }, error: userError } =
         await supabaseClient.auth.getUser();
@@ -1169,6 +1221,7 @@ async function saveToSupabase() {
             completed_sets: completedSets,
             workout_count: workoutCount,
             running_sessions: runningSessions,
+            exercise_notes: exerciseNotes,
             updated_at: new Date().toISOString()
         }, {
             onConflict: "user_id"
