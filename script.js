@@ -696,6 +696,7 @@ function renderExerciseDetail() {
 
     const exerciseData = workoutTemplates[activeWorkout][activeExercise];
     const sets = exerciseData.sets;
+    const notesKey = JSON.stringify([activeWorkout, activeExercise]);
 
     contentArea.innerHTML = "";
 
@@ -776,8 +777,6 @@ function renderExerciseDetail() {
     // ========================================
 // NOTES – INDIVIDUELLA ÖVNINGSANTECKNINGAR
 // ========================================
-
-const notesKey = JSON.stringify([activeWorkout, activeExercise]);
 
 const notesSection = document.createElement("section");
 notesSection.className = "notes-section";
@@ -1161,7 +1160,7 @@ async function loadFromSupabase() {
 
     const { data, error } = await supabaseClient
         .from("workout_data")
-        .select("completed_sets, workout_count, running_sessions")
+        .select("completed_sets, workout_count, running_sessions, exercise_notes")
         .eq("user_id", user.id)
         .maybeSingle();
 
@@ -1180,6 +1179,7 @@ async function loadFromSupabase() {
     completedSets = data.completed_sets || {};
     workoutCount = data.workout_count || {};
     runningSessions = data.running_sessions || [];
+    exerciseNotes = data.exercise_notes || {};
 
     // Spara även lokalt som en extra kopia
     localStorage.setItem(
